@@ -4,10 +4,10 @@ using RepositoryNetAPI.Repositories.Interfaces;
 
 namespace RepositoryNetAPI.Repositories.EF
 {
-    public class Repository<T>(AppDbContext dbContext, DbSet<T> dbSet) : IRepository<T> where T : class
+    public class Repository<T>(AppDbContext dbContext) : IRepository<T> where T : class
     {
         protected readonly AppDbContext _dbContext = dbContext;
-        private readonly DbSet<T> _dbSet = dbSet;
+        private readonly DbSet<T> _dbSet = dbContext.Set<T>();
 
         public void Add(T entity)
         {
@@ -37,6 +37,11 @@ namespace RepositoryNetAPI.Repositories.EF
         public void Update(T entity)
         {
             _dbSet.Update(entity);
+        }
+
+        public void Save()
+        {
+            _dbContext.SaveChanges();
         }
     }
 }

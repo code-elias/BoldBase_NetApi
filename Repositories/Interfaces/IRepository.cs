@@ -11,5 +11,6 @@
         void Update(T entity);
         void Delete(T entity);
         int DeleteById(object id);
+        void Save();
     }
 }
