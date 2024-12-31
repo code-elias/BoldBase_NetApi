@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RepositoryNetAPI.Models;
@@ -24,6 +24,32 @@ namespace RepositoryNetAPI.Controllers
             _userRepository.Save();
 
             return Ok("User registered successfully");
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(string username, string password)
+        {
+            // Dummy Login
+            if (String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(password))
+            {
+                return BadRequest("Username/Password not supplied");
+            }
+
+            return Ok("Login Successful");
+        }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            // Dummy Logout
+            return Ok("Logout successful");
+        }
+
+        //[Authorize] // Auth currently turned off
+        [HttpGet("ping")]
+        public IActionResult PingTestAuth()
+        {
+            return Ok("You are authenticated");
         }
     }
 }

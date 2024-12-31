@@ -31,23 +31,23 @@ namespace RepositoryNetAPI
              * dotnet add package System.IdentityModel.Tokens.Jwt
              */
 
-            var jwtKey = builder.Configuration["Jwt:Key"]; 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+            //var jwtKey = builder.Configuration["Jwt:Key"]; 
+            //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
 
 
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = key,
-                        ValidateIssuer = false,
-                        ValidateAudience = false
-                    };
-                });
+            //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(options =>
+            //    {
+            //        options.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = key,
+            //            ValidateIssuer = false,
+            //            ValidateAudience = false
+            //        };
+            //    });
 
-            builder.Services.AddAuthorization();
+            //builder.Services.AddAuthorization();
             #endregion Authentication
 
 
