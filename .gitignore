@@ -1,0 +1,34 @@
+# Build artifacts
+bin/
+obj/
+out/
+
+# Visual Studio settings
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.cov
+
+# Local NuGet cache
+.nuget/
+
+# Logs
+*.log
+logs/
+
+# Database files (SQLite)
+*.db
+*.sqlite
+*.sqlite3
+
+# User Secrets (if stored in solution folder)
+appsettings.Development.json
+appsettings.Local.json

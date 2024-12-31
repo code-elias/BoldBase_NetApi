@@ -1,0 +1,6 @@
+@RepositoryNetAPI_HostAddress = http://localhost:5069
+
+GET {{RepositoryNetAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
