@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using RepositoryNetAPI.Data;
+using RepositoryNetAPI.Repositories;
+using RepositoryNetAPI.Repositories.Interfaces;
 
 namespace RepositoryNetAPI
 {
@@ -11,7 +13,8 @@ namespace RepositoryNetAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))); 
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
