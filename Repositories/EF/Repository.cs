@@ -2,7 +2,7 @@
 using RepositoryNetAPI.Data;
 using RepositoryNetAPI.Repositories.Interfaces;
 
-namespace RepositoryNetAPI.Repositories
+namespace RepositoryNetAPI.Repositories.EF
 {
     public class Repository<T>(AppDbContext dbContext, DbSet<T> dbSet) : IRepository<T> where T : class
     {
